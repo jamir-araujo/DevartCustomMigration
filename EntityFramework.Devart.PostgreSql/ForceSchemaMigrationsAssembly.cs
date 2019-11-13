@@ -74,7 +74,14 @@ namespace EntityFramework.Devart.PostgreSql
                     {
                         foreach (var item in items)
                         {
-                            //if (!(item is AddColumnOperation))
+                            if (item is AddColumnOperation addColumnOperation)
+                            {
+                                //if (addColumnOperation.Name != "Id")
+                                {
+                                    SetSchema(item, schema);
+                                }
+                            }
+                            else
                             {
                                 SetSchema(item, schema);
                             }
